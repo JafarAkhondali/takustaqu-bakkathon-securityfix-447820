@@ -1,5 +1,6 @@
 <?php 
 	$api_url = 'http://www.yahoo.co.jp'; 
+	
 ?>
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
