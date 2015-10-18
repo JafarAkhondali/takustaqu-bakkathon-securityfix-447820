@@ -99,11 +99,10 @@ function restoreFromJSON(json){
 	var $timeline = $("#timeline")
 	var ms = 0;
 
-	var beat = bpmToMs((86.5));
+	var beat = bpmToMs((110));
 	gap = 30;
 	var nextBeat = 50;
 	var lyricIdx = 0;
-	var nextLyric = lyric[lyricIdx];
 	var currentLyric = "";
 
 	var beatCount = 0;
@@ -129,11 +128,6 @@ function restoreFromJSON(json){
 
 
 	$addLyric.on({"mousedown":function(){
-		lyricIdx++
-		nextLyric = lyric[lyricIdx];
-		currentLyric = lyric[lyricIdx-1];
-		
-		$timeline.children("tr").eq(beatCount).children("td").eq(1).append(addObject("lyric",currentLyric));
 
 	},"click":function(){return false;}});
 
@@ -153,8 +147,12 @@ function restoreFromJSON(json){
 		$.each(command,function(){
 			if(this.type == "huebulb"){
 				applyToHue("bulb",this.data.target,this.data.coloralias);
+			}else if(this.type == "rollup"){
+				$.get("http://168.63.141.143:8000/api", function(data){
+				});
 			}
 		});
+
 	}
 
 	function applyToHue(type,id,coloralias,duration){
@@ -183,7 +181,6 @@ function restoreFromJSON(json){
 
 	setInterval(function(){
 
-		$nextLyric.text(nextLyric);
 		
 		beatCount = Math.floor(Math.floor(ms/beat))
 		
@@ -219,4 +216,5 @@ function restoreFromJSON(json){
 
 	},1000/120)
 
-})()
+})();
+restoreFromJSON('{"0":[{"type":"huebulb","data":{"coloralias":"nozomi","target":"2"}},{"type":"huebulb","data":{"coloralias":"nico","target":"3"}}],"1":[{"type":"huebulb","data":{"coloralias":"nozomi","target":"3"}},{"type":"huebulb","data":{"coloralias":"eli","target":"2"}}],"2":[{"type":"huebulb","data":{"coloralias":"maki","target":"3"}},{"type":"huebulb","data":{"coloralias":"kotori","target":"2"}}],"3":[{"type":"huebulb","data":{"coloralias":"kotori","target":"3"}},{"type":"huebulb","data":{"coloralias":"uni","target":"2"}}],"4":[{"type":"huebulb","data":{"coloralias":"rin","target":"2"}},{"type":"huebulb","data":{"coloralias":"hanayo","target":"3"}}],"5":[{"type":"huebulb","data":{"coloralias":"maki","target":"1"}},{"type":"huebulb","data":{"coloralias":"maki","target":"2"}},{"type":"huebulb","data":{"coloralias":"maki","target":"3"}}],"7":[{"type":"huebulb","data":{"coloralias":"nozomi","target":"1"}},{"type":"huebulb","data":{"coloralias":"nozomi","target":"2"}},{"type":"huebulb","data":{"coloralias":"nozomi","target":"3"}}],"8":[{"type":"huebulb","data":{"coloralias":"rin","target":"3"}},{"type":"huebulb","data":{"coloralias":"hanayo","target":"2"}}],"9":[{"type":"huebulb","data":{"coloralias":"maki","target":"2"}},{"type":"huebulb","data":{"coloralias":"eli","target":"3"}}],"10":[{"type":"huebulb","data":{"coloralias":"nozomi","target":"2"}},{"type":"huebulb","data":{"coloralias":"kotori","target":"3"}}],"11":[{"type":"huebulb","data":{"coloralias":"uni","target":"3"}},{"type":"huebulb","data":{"coloralias":"hanayo","target":"2"}}],"13":[{"type":"huebulb","data":{"coloralias":"nico","target":"1"}},{"type":"huebulb","data":{"coloralias":"nico","target":"3"}},{"type":"huebulb","data":{"coloralias":"nico","target":"2"}},{"type":"rollup","data":true}]}')
