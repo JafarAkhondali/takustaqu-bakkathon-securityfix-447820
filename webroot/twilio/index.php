@@ -1,5 +1,5 @@
 <?php 
-	$api_url = 'http://www.yahoo.co.jp';
+	$api_url = 'http://168.63.141.143:8000/api';
 ?>
 <?php echo'<?xml version="1.0" encoding="UTF-8"?>'; ?>
 <Response>
