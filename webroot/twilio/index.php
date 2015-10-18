@@ -7,7 +7,7 @@
 	<Say language="ja-JP" voice="alice">スカートをめくろう。</Say>
 	<Pause length="1"/>
 	<Play>http://bakaapp.azurewebsites.net/webroot/twilio/ise_type2a.mp3</Play>
-	<Redirect>http://bakaapp.azurewebsites.net/webroot/twilio?open</Redirect>
+	<Redirect method="GET">http://bakaapp.azurewebsites.net/webroot/twilio?open</Redirect>
 	<?php else: ?>
 	<?php
 		//CURL叩く
