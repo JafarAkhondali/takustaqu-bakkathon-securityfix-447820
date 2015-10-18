@@ -1,12 +1,7 @@
 <?php 
-	$api_url = 'http://www.yahoo.co.jp'; 
-<<<<<<< HEAD
-	
-=======
-
->>>>>>> master
+	$api_url = 'http://www.yahoo.co.jp';
 ?>
-<?xml version="1.0" encoding="UTF-8"?>
+<?php echo'<?xml version="1.0" encoding="UTF-8"?>'; ?>
 <Response>
 	<?php if(!isset($_GET['open'])): ?>
 	<Say language="ja-JP" voice="alice">スカートをめくろう。</Say>
