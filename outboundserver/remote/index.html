@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<div id="unlock">
+	<i class="fa fa-unlock-alt"></i>
+	<i class="fa fa-lock"></i>
+</div>
+
+<style>
+body {
+	background-color: #000;
+}
+#unlock {
+	position: absolute;
+	left:50%;
+	top:50%;
+	display: block;
+	width:240px;
+	margin:-120px;
+	height:240px;
+	line-height:260px;
+	font-size:160px;
+	text-align: center;
+	color:#FFF;
+	background-color: green;
+	-webkit-border-radius: 200px;
+	        border-radius: 200px;
+	transition:background 0.5s ease-in-out 0s;
+}
+
+#unlock.done {
+	background-color: red;
+}
+
+#unlock .fa-unlock-alt {
+	display: none;
+}
+
+#unlock.done .fa-unlock-alt {
+	display: inline-block;
+}
+#unlock.done .fa-lock {
+	display: none;
+}
+</style>
+<script>
+	
+
+$("#unlock").on({"click":function(){
+	$(this).addClass("done")
+	$.get("http://168.63.141.143:8000/api", function(data){
+	});
+	setTimeout(function(){
+		$("#unlock").removeClass("done")
+	},3000);
+}})
+</script>
+</body>
+</html>

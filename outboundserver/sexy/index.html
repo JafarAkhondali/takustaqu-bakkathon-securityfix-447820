@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	<script src="lib/huelett.js"></script>
+
+	<title></title>
+
+	<style>
+	#beat{
+		width:32px;height:32px;
+		display: block;
+		border:1px solid #CCC;
+		-webkit-border-radius: 32px;
+		        border-radius: 32px;
+		}
+
+
+table{
+width: 70%;
+border-collapse: collapse;
+}
+table th{
+width: 25%;
+padding: 6px;
+text-align: left;
+vertical-align: top;
+color: #333;
+background-color: #eee;
+border: 1px solid #b9b9b9;
+}
+table td{
+padding: 6px;
+border: 1px solid #b9b9b9;
+}
+
+table td:nth-child(1){
+	width:3em;
+	text-align:right;
+}
+
+	#player {
+		position: fixed;
+		top:0;left:0;
+		width:100%;
+	}
+
+	#player audio{
+		width:100%;
+	}
+
+	.data {
+		position: fixed;
+		right:0;
+		width:400px;
+		top:40px;
+	}
+	</style>
+
+</head>
+<body>
+
+<div id="player"><audio src="ise_type1.mp3" controls id="audio" width="100%"></audio></div>
+
+<div id="beat"></div>
+<ul class="data">
+	<li>
+		<span id="current-time"></span>
+	</li>
+	<li>現在<span id="current-lyric"></span></li>
+	<li>次<span id="next-lyric"></span></li>
+	<li>泊：<span id="beat-count"></span></li>
+	<li>小節：<span id="segment-count"></span></li>
+
+	<a href="#" id="addLyric">歌詞を追加</a>
+
+	<div id="palett" ondrop="drop( event, this );" ondragover="allowDrop( event );">
+		
+	</div>
+
+	<li>color:<select name="" id="charactor-color">
+		<option value="honoka">honoka</option>
+		<option value="kotori">kotori</option>
+		<option value="uni">uni</option>
+		<option value="hanayo">hanayo</option>
+		<option value="rin">rin</option>
+		<option value="maki">maki</option>
+		<option value="nico">nico</option>
+		<option value="nozomi">nozomi</option>
+		<option value="eli">eli</option>
+	</select></li>
+	
+	<li>target:
+		<select name="" id="light-unit">
+		<!-- <option value="">両ライト</option> -->
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		</select>
+	</li>
+
+	<li>addLight:
+		<a href="#" id="addLight">ライトを追加</a>
+	</li>
+
+
+</ul>
+<div id="redips-drag">
+	<table >
+		<thead>
+			<tr>
+				<td>beat</td>
+				<td>payload</td>
+			</tr>
+		</thead>
+		<tbody id="timeline">
+		
+		</tbody>
+	</table>
+</div>
+
+<script>
+
+var hue = new $h("huelettuser","huelettsample");
+
+var colorPreset = {
+	honoka :[[10000,255],[10000,255]],
+	kotori :[[40000,200],[50000,50]],
+	uni :[[46920,255],[46920,255]],
+	hanayo:[[26000,255],[22000,255]],
+	rin:[[22000,200],[17500,255]],
+	maki:[[0,255],[0,255]],
+	nico:[[55000,255],[55000,255]],
+	nozomi:[[48500,255],[51000,255]],
+	eli :[[46920,200],[42920,255]]
+};
+
+</script>
+
+<script src="script/tlcreate.js"></script>
+
+</body>
+</html>
