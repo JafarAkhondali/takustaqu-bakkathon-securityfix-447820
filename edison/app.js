@@ -1,5 +1,5 @@
 var mraa = require("mraa");
-var servo = new m.Pwm(3);//Pin 3
+var servo = new mraa.Pwm(3);//Pin 3
 
 servo.enable(true);
 servo.period_us(19000000) //PWM Period https://www.arduino.cc/en/Tutorial/SecretsOfArduinoPWM
