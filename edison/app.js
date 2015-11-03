@@ -10,5 +10,5 @@ setTimeout(function(){
 },1000)
 
 setTimeout(function(){
-	servo.write(0.5);
+	servo.write(1);
 },2000)
