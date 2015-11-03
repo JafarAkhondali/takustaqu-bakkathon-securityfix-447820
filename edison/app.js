@@ -8,9 +8,16 @@ servo.enable(true);
 servo.period_us(19000000) //PWM Period https://www.arduino.cc/en/Tutorial/SecretsOfArduinoPWM
 servo.write(1);
 
-var socket = io('http://localhost:3000');
-  socket.on('connect', function () {
-    socket.emit("message", 'send message.');
+var socket = io('http://bakathon.cloudapp.net/');
+  socket.on('doflip', function () {
+    console.log("foo");
+    servo.write(0);
+	led.write(1);
+	setTimeout(function(){
+		servo.write(0.5);
+		led.write(0);
+	},1000)
+
 });
 
 setTimeout(function(){
