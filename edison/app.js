@@ -17,15 +17,8 @@ var socket = io('http://bakathon.cloudapp.net/');
 		servo.write(0.5);
 		led.write(0);
 	},1000)
+	setTimeout(function(){
+		servo.write(1);
+	},2000)
 
 });
-
-setTimeout(function(){
-	servo.write(0);
-	led.write(1);
-},1000)
-
-setTimeout(function(){
-	servo.write(0.5);
-	led.write(0);
-},2000)
