@@ -10,7 +10,7 @@ shockPin.dir(mraa.DIR_OUT);
 
 servo.enable(true);
 servo.period_us(19000000) //PWM Period https://www.arduino.cc/en/Tutorial/SecretsOfArduinoPWM
-servo.write(1);
+shockPin.write(0);
 
 var socket = io('http://bakathon.cloudapp.net/');
   socket.on('doflip', function () {
